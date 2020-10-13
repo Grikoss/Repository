@@ -18,7 +18,7 @@ bool isEmpty(ListHeadTail* list) {
 }
 
 void delete(ListHeadTail* list) {
-	while (!isEmpty) {
+	while (!isEmpty(list)) {
 		ListElement* oldHead = list->head;
 		list->head = list->head->next;
 		free(oldHead);
@@ -31,15 +31,27 @@ void delete(ListHeadTail* list) {
 void createList()
 {
 	ListElement* nullElement = malloc(sizeof(struct ListElement));
+	if (nullElement == NULL) {
+		return;
+	}
+
 	ListHeadTail* list = malloc(sizeof(struct ListHeadTail));
-	nullElement->value = NULL;
+	if (nullElement == NULL) {
+		return;
+	}
+
+	nullElement->value = 0;
 	nullElement->next = NULL;
+	if (list == NULL) {
+		return;
+	}
+
 	list->head = nullElement;
 }
 
 void print(ListHeadTail* list)
 {
-	while (!isEmpty)
+	while (!isEmpty(list))
 	{
 		printf("%i\n", (list->head->value));
 		list->head = list->head->next;
