@@ -9,7 +9,7 @@ typedef struct ListElement
 
 typedef struct ListHeadTail
 {
-	struct ListHeadTail* head;
+	struct ListElement* head;
 } ListHeadTail;
 
 void createList()
@@ -19,6 +19,15 @@ void createList()
 	nullElement->value = NULL;
 	nullElement->next = NULL;
 	list->head = nullElement;
+}
+
+void print(ListHeadTail* list)
+{
+	while (!isEmpty)
+	{
+		printf("%i\n", (list->head->value));
+		list->head = list->head->next;
+	}
 }
 
 void main() {
