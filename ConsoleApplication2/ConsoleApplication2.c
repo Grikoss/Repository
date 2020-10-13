@@ -10,9 +10,18 @@ typedef struct ListElement
 typedef struct ListHeadTail
 {
 	struct ListHeadTail* head;
-	struct ListHeadTail* tail;
 } ListHeadTail;
 
+void createList()
+{
+	ListElement* nullElement = malloc(sizeof(struct ListElement));
+	ListHeadTail* list = malloc(sizeof(struct ListHeadTail));
+	nullElement->value = NULL;
+	nullElement->next = NULL;
+	list->head = nullElement;
+}
+
 void main() {
+	
 
 }
